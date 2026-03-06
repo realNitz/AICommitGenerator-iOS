@@ -1,0 +1,110 @@
+# AI Chat iOS App (SwiftUI + OpenRouter)
+
+A simple AI Chat application built using **SwiftUI** that connects to
+LLM models via **OpenRouter API**.\
+This project is designed for **learning purposes and GitHub portfolio
+showcase**.
+
+## Features
+
+-   Clean SwiftUI Chat Interface
+-   Send prompts to AI models
+-   Uses OpenRouter API
+-   Loading indicator while waiting for response
+-   Error handling for API failures
+-   Pull to refresh support
+-   MVVM architecture
+
+## Tech Stack
+
+-   Swift
+-   SwiftUI
+-   MVVM Architecture
+-   URLSession for API calls
+-   OpenRouter API
+
+## Project Structure
+
+    AIChatApp
+    │
+    ├── Models
+    │   └── ChatMessage.swift
+    │
+    ├── ViewModels
+    │   └── ChatViewModel.swift
+    │
+    ├── Views
+    │   ├── ChatView.swift
+    │   └── MessageBubble.swift
+    │
+    ├── Services
+    │   └── APIService.swift
+    │
+    └── Resources
+
+## Setup Instructions
+
+### 1. Clone the Repository
+
+``` bash
+git clone https://github.com/yourusername/ai-chat-ios.git
+cd ai-chat-ios
+```
+
+### 2. Add Your OpenRouter API Key
+
+Open:
+
+    APIService.swift
+
+Replace:
+
+    let apiKey = "YOUR_OPENROUTER_API_KEY"
+
+with your key from:
+
+https://openrouter.ai
+
+### 3. Run the Project
+
+1.  Open the project in **Xcode**
+2.  Select **iPhone Simulator**
+3.  Press **Run (⌘ + R)**
+
+## Example API Request
+
+    POST https://openrouter.ai/api/v1/chat/completions
+
+Body:
+
+``` json
+{
+  "model": "openai/gpt-3.5-turbo",
+  "messages": [
+    { "role": "user", "content": "Hello" }
+  ]
+}
+```
+
+## Screenshots
+
+Add screenshots here after running the app.
+
+Example:
+
+    <img src="screenshots/chat.png" width="300">
+
+## Future Improvements
+
+-   Dark mode UI
+-   Chat history storage
+-   Multiple AI models
+-   Voice input
+-   Streaming responses
+
+## Author
+
+**Nitesh Parihar**\
+iOS Developer (6+ years experience)
+
+If you like this project, consider giving it a ⭐ on GitHub.
