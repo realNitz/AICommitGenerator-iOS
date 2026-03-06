@@ -9,7 +9,8 @@ import Foundation
 
 class AIService {
     
-    private let apiKey = "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"
+    // Replace with your OpenRouter API Key
+    private let apiKey = "YOUR_API_KEY"
     
     func generateCommitMessage(diff: String) async throws -> String {
         
@@ -18,11 +19,13 @@ class AIService {
         }
         
         let prompt = """
-        Generate a git commit message using conventional commit format.
-
+        You are a senior software engineer.
+        
+        Generate a clean git commit message using conventional commits format.
+        
         Git diff:
         \(diff)
-
+        
         Return:
         Title
         Bullet points
@@ -43,20 +46,23 @@ class AIService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
-        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        // Headers required by OpenRouter
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.addValue("AICommitGenerator", forHTTPHeaderField: "HTTP-Referer")
+        request.addValue("AI Commit Generator", forHTTPHeaderField: "X-Title")
         
         request.httpBody = jsonData
         
         let (data, _) = try await URLSession.shared.data(for: request)
         
+        // Debug response
         if let json = String(data: data, encoding: .utf8) {
             print("FULL RESPONSE:", json)
         }
         
-        let response = try JSONDecoder().decode(AIResponse.self, from: data)
+        let response = try JSONDecoder().decode(OpenRouterResponse.self, from: data)
         
-        return response.choices.first?.message.content ?? "No response"
-        
+        return response.choices.first?.message.content ?? "No response from AI"
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AIResponse: Codable {
+struct OpenRouterResponse: Codable {
     let choices: [Choice]
 }
 
@@ -16,5 +16,6 @@ struct Choice: Codable {
 }
 
 struct Message: Codable {
+    let role: String
     let content: String
 }
