@@ -91,8 +91,10 @@ Body:
 Add screenshots here after running the app.
 
 Example:
+<img width="329" height="685" alt="Screenshot 2026-03-06 at 1 15 38 PM" src="https://github.com/user-attachments/assets/0a974cb6-a00d-4003-b5ee-bb028cc0d751" />
 
-    <img src="screenshots/chat.png" width="300">
+    <img width="333" height="683" alt="Screenshot 2026-03-06 at 1 15 16 PM" src="https://github.com/user-attachments/assets/2feeaf30-d2b0-4745-af9c-7e774d022e16" />
+
 
 ## Future Improvements
 
